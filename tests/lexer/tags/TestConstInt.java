@@ -5,7 +5,8 @@ import lexer.tags.ConstInt;
 
 public class TestConstInt{
   public static void main(String[] args){
-    ConstInt c = new ConstInt(1, 10);
+    ConstInt c = new ConstInt(-1, 10);
+    ConstInt c3 = new ConstInt("-1", 10);
     System.out.println(c.getLine());
     System.out.println(c.getValue());
 
