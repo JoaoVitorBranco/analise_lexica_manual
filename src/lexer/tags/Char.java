@@ -10,7 +10,7 @@ public class Char extends Token {
 
     public void setLexeme(String c) throws IllegalArgumentException{
         if (! isChar(c)){
-            throw new IllegalArgumentException("Char válido");
+            throw new IllegalArgumentException("Char inválido");
         }
         else{
             this.lexeme = c;
