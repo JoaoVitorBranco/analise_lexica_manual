@@ -6,25 +6,22 @@ public class Reserved extends Token{
     private String lexeme;
     
 
-    public Reserved(String lexeme, int line){
+    public Reserved(String lexeme, int line) throws IllegalArgumentException {
         super(Tag.RESERVED, line);
-        try{
-            setLexeme(lexeme);
-        } catch (Exception e){
-            System.out.println(e.getMessage());        
-        }
+        this.setLexeme(lexeme);
+
     }
 
     public String getLexeme(){
         return this.lexeme;
     }
 
-    public void setLexeme(String lexeme) throws Exception{
+    public void setLexeme(String lexeme) throws IllegalArgumentException{
 
       if (isReserved(lexeme)){
         this.lexeme = lexeme;
       } else {
-        throw new Exception("Palavra reservada inválida");
+        throw new IllegalArgumentException("Palavra reservada inválida");
       }
 
     }

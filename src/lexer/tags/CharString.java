@@ -6,12 +6,7 @@ public class CharString extends  Token{
     public CharString(String s, int line){
         super(Tag.STRING, line);
 
-        try{
-            this.setLexeme(s);
-        }
-        catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
-        }
+        this.setLexeme(s);
     }
 
     public String toString(){

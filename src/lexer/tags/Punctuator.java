@@ -33,11 +33,11 @@ public class Punctuator extends Token{
     return "Punctuator: " +  this.symbol;
   }
 
-  public void setPunctuator(String symbol) throws Exception{
+  public void setPunctuator(String symbol) throws IllegalArgumentException{
     if(isPunctuator(symbol)){
       this.symbol = symbol;
     }else{
-      throw new Exception("Pontuador inválido");
+      throw new IllegalArgumentException("Pontuador inválido");
     }
   }
 

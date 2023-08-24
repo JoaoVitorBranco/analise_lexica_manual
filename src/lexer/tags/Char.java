@@ -3,18 +3,12 @@ package lexer.tags;
 public class Char extends Token {
     private String lexeme;
 
-    public Char(String c, int line){
+    public Char(String c, int line) throws IllegalArgumentException{
         super(Tag.CHAR, line);
-
-        try{
-            this.setLexeme(c);
-        }
-        catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
-        }
+        this.setLexeme(c);
     }
 
-    public void setLexeme(String c){
+    public void setLexeme(String c) throws IllegalArgumentException{
         if (! isChar(c)){
             throw new IllegalArgumentException("Char válido");
         }
