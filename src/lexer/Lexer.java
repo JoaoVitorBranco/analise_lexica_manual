@@ -1,8 +1,6 @@
 package lexer;
 
-import lexer.tags.Identifier;
-import lexer.tags.Reserved;
-import lexer.tags.Token;
+import lexer.tags.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +26,7 @@ public class Lexer {
 
     public Lexer(ArrayList<String> lines){
         this.columns = 0;
-        this.line = 1;
+        this.line = 0;
         this.lines = lines;
 
         for(String s : Reserved.reservedWords){
@@ -52,8 +50,39 @@ public class Lexer {
         this.line++;
         this.currentChar = ' ';
 
-        while(this.currentChar != '\n'){
+        while(this.currentChar != '\n' && this.columns < line.length()){
             this.currentChar = line.charAt(this.columns);
+            
+            if(this.currentChar == ' ' || this.currentChar == '\t'){
+                this.columns++;
+                continue;
+            } else if (Punctuator.isPunctuator(this.currentChar + "")) {
+                Punctuator p = new Punctuator(this.currentChar + "", this.line);
+                this.addTokenToBuffer(p);
+            } else if (this.currentChar == '\'')
+            {
+                try{
+                    char c = line.charAt(this.columns + 1);
+                    char c2 = line.charAt(this.columns + 2);
+
+                    if(c2 == '\''){
+                        String s =  this.currentChar + ""  + c + c2;
+                        Char r = new Char(s, this.line);
+                        this.addTokenToBuffer(r);
+                        this.columns += 3;
+                    }
+                    else {
+                        throw new Exception("Char mal formado");
+                    }
+
+                }
+                catch (Exception e){
+                    System.out.println(e.getMessage());
+                    System.exit(0);
+                }
+
+
+            }
 
 
             this.columns++;
@@ -64,9 +93,11 @@ public class Lexer {
         this.buffer.add(token);
     }
 
-
-
-
+    public void printBuffer(){
+        for(Token t : this.buffer){
+            System.out.println(t);
+        }
+    }
 
 
 }

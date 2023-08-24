@@ -54,7 +54,7 @@ de um ou mais dígitos
     - qualquer sequência de zero ou mais caracteres ladeado por " e"
     - _ex_: "isasdADS\ \*\*\\d@0129yu398nosdh0123>:???>?>^''''''^}d~]aç]sdças\]      \\n\n\nn\nn\n/-/*"
     
-8. Caractere 🟩
+8. Caractere 🟩🟩
     - qualquer caractere simples (apenas um!) ladeado por ' e '
     - _ex_: 'a'
     - _ex_: '2'
@@ -71,7 +71,7 @@ de um ou mais dígitos
     - _ex_: ~
     - _ex_: !
 
-10. Pontuadores 🟩
+10. Pontuadores 🟩🟩
     - Qualquer símbolo dentro deste conjunto: [, ], (, ), ,
     - _ex_: [
     - _ex_: ]
