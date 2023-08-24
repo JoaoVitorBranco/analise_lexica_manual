@@ -2,7 +2,7 @@ package lexer.tags;
 
 
 public class Reserved extends Token{
-    private static String[] reservedWords = {"if", "do", "else", "while", "char", "until", "void", "int"};
+    public static String[] reservedWords = {"if", "do", "else", "while", "char", "until", "void", "int"};
     private String lexeme;
     
 
