@@ -2,7 +2,7 @@ package lexer.tags;
 
 public enum Tag{
   RESERVED("RESERVED"), 
-  INDENTIFIER("INDENTIFIER"),
+  IDENTIFIER("IDENTIFIER"),
   INT("INT"),
   HEX("HEX"),
   OCT("OCT"),
