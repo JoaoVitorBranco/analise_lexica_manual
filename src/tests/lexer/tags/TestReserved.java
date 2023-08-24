@@ -1,4 +1,6 @@
-class TestReserved {
+import tags.Reserved;
+
+public class TestReserved {
     public static void main(String[] args) {
       String if_string = "if";
       String else_string = "else";

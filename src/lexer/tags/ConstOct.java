@@ -1,8 +1,10 @@
-class ConstOct extends Token{
+
+package tags;
+public class ConstOct extends Token{
     private String oct;
 
 
-    ConstOct(String oct, int line){
+    public ConstOct(String oct, int line){
         super(Tag.OCT, line);
         
         try{

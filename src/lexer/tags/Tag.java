@@ -1,3 +1,4 @@
+package tags;
 
 public enum Tag{
   RESERVED("RESERVED"), 
@@ -9,7 +10,7 @@ public enum Tag{
   STRING("STRING"),
   CHAR("CHAR"),
   OPERATOR("OPERATOR"),
-  PONCTUACTOR("PONCTUACTOR");
+  PUNCTUATOR("PUNCTUATOR");
 
   private final String text;
 

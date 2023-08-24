@@ -42,7 +42,7 @@
     - _ex_: 00
     - _ex_: 000
 
-6. Constante Real
+6. Constante Real 🟩
     - sinal + ou ‐, ser seguido por um ou mais dígitos, depois ser seguido pelo símbolo . (ponto) e então por um ou mais dígitos. Por fim, opcionalmente, pode ter a letra E ou e, seguido por opcionalmente pelo sinal + ou ‐ e obrigatoriamente por uma sequência
     - _ex_: +1.3
     - _ex_: 5.0e10

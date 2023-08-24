@@ -1,4 +1,6 @@
-class TestConstOct {
+import tags.ConstOct;
+
+public class TestConstOct {
   public static void main(String[] args) {
     String oct_1 = "010";
     String invalid_oct_1 = "10";

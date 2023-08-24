@@ -1,4 +1,6 @@
-class ConstInt extends Token{
+package tags;
+
+public class ConstInt extends Token{
   private int value;
 
   public ConstInt(int value, int line){

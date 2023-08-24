@@ -1,3 +1,4 @@
+package tags;
 
 public class Token {
 

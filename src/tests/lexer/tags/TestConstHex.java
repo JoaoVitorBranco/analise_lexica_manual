@@ -1,4 +1,6 @@
-class TestConstHex{
+import tags.ConstHex;
+
+public class TestConstHex{
   public static void main(String[] args) {
     String hex_1 = "0xAbcdefa";
     String hex_2 = "0X10A";

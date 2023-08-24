@@ -1,8 +1,10 @@
-class ConstHex extends Token{
+package tags;
+
+public class ConstHex extends Token {
     private String hex;
 
 
-    ConstHex(String hex, int line){
+    public ConstHex(String hex, int line){
         super(Tag.HEX, line);
         
         try{

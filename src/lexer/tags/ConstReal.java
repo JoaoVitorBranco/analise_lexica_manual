@@ -1,4 +1,6 @@
-class ConstReal extends Token{
+package tags;
+
+public class ConstReal extends Token{
     private String value;
 
 

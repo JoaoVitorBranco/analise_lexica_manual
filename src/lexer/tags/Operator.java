@@ -1,8 +1,10 @@
-class Operator extends Token{
+package tags;
+
+public class Operator extends Token{
   private final static String[] operators = {"++", "--", "&", "*", "+", "-", "~", "!", ","};
   private String operator;
 
-  Operator(String operator, int line){
+  public Operator(String operator, int line){
     super(Tag.OPERATOR, line);
     
     try{

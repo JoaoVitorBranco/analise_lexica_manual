@@ -1,4 +1,6 @@
-class TestOperator{
+import tags.Operator;
+
+public class TestOperator{
   public static void main(String[] args) {
     String operator_1 = "+";
     String operator_2 = "-";

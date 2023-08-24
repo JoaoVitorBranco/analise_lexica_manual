@@ -1,3 +1,5 @@
+import tags.Tag;
+import tags.Token;
 
 public class TestToken{
   public static void main(String[] args){
