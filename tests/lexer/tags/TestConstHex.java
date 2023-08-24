@@ -10,7 +10,7 @@ public class TestConstHex{
     String invalid_hex_2 = "01G";
     String invalid_hex_3 = "0X";
 
-    ConstHex const_hex_1 = new ConstHex(hex_1, 10);
+    ConstHex const_hex_1 = new ConstHex(hex_1, 10, 1);
 
     System.out.println("Hex 1: " + const_hex_1.getHex());
     System.out.println("Line 1: " + const_hex_1.getLine());
@@ -21,6 +21,6 @@ public class TestConstHex{
     System.out.println(ConstHex.isConstHex(invalid_hex_2));
     System.out.println(ConstHex.isConstHex(invalid_hex_3));
 
-    ConstHex const_hex_2 = new ConstHex(invalid_hex_2, 10);
+    ConstHex const_hex_2 = new ConstHex(invalid_hex_2, 10, 1);
   }
 }

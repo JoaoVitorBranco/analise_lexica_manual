@@ -30,7 +30,7 @@ public class Lexer {
         this.lines = lines;
 
         for(String s : Reserved.reservedWords){
-            this.reserveReserved(new Reserved(s, 0));
+            this.reserveReserved(new Reserved(s, 0, 0));
         }
     }
 
@@ -57,7 +57,7 @@ public class Lexer {
                 this.columns++;
                 continue;
             } else if (Punctuator.isPunctuator(this.currentChar + "")) {
-                Punctuator p = new Punctuator(this.currentChar + "", this.line);
+                Punctuator p = new Punctuator(this.currentChar + "", this.line, this.columns);
                 this.addTokenToBuffer(p);
             } else if (this.currentChar == '\'')
             {
@@ -67,7 +67,7 @@ public class Lexer {
 
                     if(c2 == '\''){
                         String s =  this.currentChar + ""  + c + c2;
-                        Char r = new Char(s, this.line);
+                        Char r = new Char(s, this.line, this.columns);
                         this.addTokenToBuffer(r);
                         this.columns += 3;
                     }

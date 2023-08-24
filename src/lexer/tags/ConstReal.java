@@ -5,8 +5,8 @@ public class ConstReal extends Token{
     private String value;
 
 
-    ConstReal(String n_real, int line){
-        super(Tag.DOUBLE, line);
+    ConstReal(String n_real, int line, int column ){
+        super(Tag.DOUBLE, line,column);
         
         try{
             setValue(n_real);

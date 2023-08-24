@@ -13,9 +13,9 @@ public class TestReserved {
       System.out.println(Reserved.isReserved(else_string));
       System.out.println(Reserved.isReserved(wrong_string));
 
-      new Reserved(wrong_string, 1);
+      new Reserved(wrong_string, 1, 0);
 
-      Reserved r = new Reserved(if_string, 10);
+      Reserved r = new Reserved(if_string, 10, 0);
       System.out.println(r.getLexeme());
       System.out.println(r.getLine());
 

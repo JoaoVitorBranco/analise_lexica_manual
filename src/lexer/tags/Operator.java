@@ -5,8 +5,8 @@ public class Operator extends Token {
   private final static String[] operators = {"++", "--", "&", "*", "+", "-", "~", "!", ","};
   private String operator;
 
-  public Operator(String operator, int line){
-    super(Tag.OPERATOR, line);
+  public Operator(String operator, int line, int column ){
+    super(Tag.OPERATOR, line,column);
 
     setOperator(operator);
 

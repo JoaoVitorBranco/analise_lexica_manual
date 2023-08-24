@@ -3,8 +3,8 @@ package lexer.tags;
 public class CharString extends  Token{
     private String lexeme;
     
-    public CharString(String s, int line){
-        super(Tag.STRING, line);
+    public CharString(String s, int line, int column){
+        super(Tag.STRING, line, column);
 
         this.setLexeme(s);
     }

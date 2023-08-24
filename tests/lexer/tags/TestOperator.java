@@ -16,11 +16,11 @@ public class TestOperator{
     System.out.println(Operator.isOperator(operator_3));
     System.out.println(Operator.isOperator(invalid_operator));
 
-    Operator operator = new Operator(operator_1, 10);
+    Operator operator = new Operator(operator_1, 10, 0);
     System.out.println(operator.getOperator());
     System.out.println(operator.getLine());
 
-    Operator invalid_op = new Operator(invalid_operator, 10);
+    Operator invalid_op = new Operator(invalid_operator, 10, 0);
     
   }
 }
