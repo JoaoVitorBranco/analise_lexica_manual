@@ -5,12 +5,7 @@ public class Identifier extends Token{
 
     public Identifier(String lexeme, int line){
         super(Tag.IDENTIFIER, line);
-        try{
-            setLexeme(lexeme);
-        }
-        catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
-        }
+        setLexeme(lexeme);
     }
 
 
@@ -26,7 +21,7 @@ public class Identifier extends Token{
     }
 
     public String toString(){
-        return "Identifier: " + this.lexeme;
+        return super.toString() + this.lexeme;
     }
 
     public static boolean isIdentifier(String identifier){

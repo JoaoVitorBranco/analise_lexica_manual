@@ -6,7 +6,9 @@ public class TestCharString {
 
     public static void main(String[] args) {
         String string1 = "\"banana\"";
-        new CharString(string1, 1);
+        CharString s1 = new CharString(string1, 1);
+
+        System.out.println(s1);
 
     }
 

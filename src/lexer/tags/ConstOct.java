@@ -7,13 +7,7 @@ public class ConstOct extends Token{
 
     public ConstOct(String oct, int line){
         super(Tag.OCT, line);
-        
-        try{
-            setOct(oct);
-        }
-        catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
-        }
+        setOct(oct);
 
     }
 
@@ -29,7 +23,7 @@ public class ConstOct extends Token{
         }
     }
     public String toString(){
-        return "oct: " + this.oct;
+        return super.toString() + this.oct;
     }
 
     public static boolean isConstOct(String oct){

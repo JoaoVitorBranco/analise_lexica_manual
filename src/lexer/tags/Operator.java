@@ -7,12 +7,8 @@ public class Operator extends Token {
 
   public Operator(String operator, int line){
     super(Tag.OPERATOR, line);
-    
-    try{
-      setOperator(operator);
-    }catch(Exception e){
-      System.out.println(e.getMessage());
-    }
+
+    setOperator(operator);
 
   }
 
@@ -30,14 +26,14 @@ public class Operator extends Token {
   }
 
   public String toString(){
-    return "Oprator: " +  this.operator;
+    return  super.toString() +  this.operator;
   }
 
-  public void setOperator(String operator) throws Exception{
+  public void setOperator(String operator) throws IllegalArgumentException{
     if(isOperator(operator)){
       this.operator = operator;
     }else{
-      throw new Exception("Operador inválido");
+      throw new IllegalArgumentException("Operador inválido");
     }
   }
 

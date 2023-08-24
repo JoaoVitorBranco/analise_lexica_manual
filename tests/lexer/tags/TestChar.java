@@ -14,10 +14,12 @@ public class TestChar {
         System.out.println(Char.isChar(string3));
         System.out.println(Char.isChar(string4));
 
-        new Char(string3, 1);
 
         Char r = new Char(string1, 10);
         System.out.println(r.getLexeme());
         System.out.println(r.getLine());
+
+        System.out.println(r.toString());
+        new Char(string3, 1);
     }
 }

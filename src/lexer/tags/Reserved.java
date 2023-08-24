@@ -27,7 +27,7 @@ public class Reserved extends Token{
     }
 
     public String toString(){
-        return "Reserved: " + super.toString();
+        return super.toString() + this.lexeme;
     }
 
     public static boolean isReserved(String word){

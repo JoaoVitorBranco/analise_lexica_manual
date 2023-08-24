@@ -29,7 +29,7 @@ public class ConstReal extends Token{
         }
     }
     public String toString(){
-        return "Real: " + this.value;
+        return super.toString() + this.value;
     }
 
     public static boolean isConstReal(String n_real){

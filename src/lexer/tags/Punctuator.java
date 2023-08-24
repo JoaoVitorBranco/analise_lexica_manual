@@ -8,11 +8,7 @@ public class Punctuator extends Token{
   public Punctuator(String operator, int line){
     super(Tag.PUNCTUATOR, line);
 
-    try{
-      setPunctuator(operator);
-    }catch(Exception e){
-      System.out.println(e.getMessage());
-    }
+    setPunctuator(operator);
 
   }
 
@@ -30,7 +26,7 @@ public class Punctuator extends Token{
   }
 
   public String toString(){
-    return "Punctuator: " +  this.symbol;
+    return super.toString() +  this.symbol;
   }
 
   public void setPunctuator(String symbol) throws IllegalArgumentException{

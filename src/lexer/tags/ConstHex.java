@@ -8,12 +8,8 @@ public class ConstHex extends Token {
     public ConstHex(String hex, int line){
         super(Tag.HEX, line);
         
-        try{
-            setHex(hex);
-        }
-        catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
-        }
+
+        setHex(hex);
 
     }
 
@@ -29,7 +25,7 @@ public class ConstHex extends Token {
         }
     }
     public String toString(){
-        return "Hex: " + this.hex;
+        return super.toString() + this.hex;
     }
 
     public static boolean isConstHex(String hex){

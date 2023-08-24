@@ -9,12 +9,13 @@ public class TestConstOct {
     String invalid_oct_1 = "10";
 
     System.out.println(ConstOct.isConstOct(oct_1));
-    System.out.println(ConstOct.isConstOct(invalid_oct_1));
 
     ConstOct const_oct_1 = new ConstOct(oct_1, 10);
     System.out.println(const_oct_1.getOct());
     System.out.println(const_oct_1.getLine());
+    System.out.println(const_oct_1);
 
     ConstOct const_oct_2 = new ConstOct(invalid_oct_1, 10);
+    System.out.println(ConstOct.isConstOct(invalid_oct_1));
   }
 }

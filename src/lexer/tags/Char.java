@@ -17,7 +17,8 @@ public class Char extends Token {
         }
     }
     public String toString(){
-        return "Char: " + this.lexeme;
+
+        return super.toString() + this.lexeme;
     }
 
     public static boolean isChar(String c){

@@ -30,6 +30,6 @@ public class Token {
     
     @Override
     public String toString() {
-        return "<" + this.tag.toString() + ">";
+        return this.line + " " + "<" + this.tag.toString() + "> ";
     }
 }

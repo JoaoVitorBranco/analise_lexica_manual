@@ -10,7 +10,7 @@ public class CharString extends  Token{
     }
 
     public String toString(){
-        return "Cadeia de caracteres: " + this.lexeme;
+        return super.toString() + this.lexeme;
     }
 
     public String getLexeme() {

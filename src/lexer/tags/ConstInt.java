@@ -18,7 +18,7 @@ public class ConstInt extends Token{
   }
 
   public String toString(){
-    return "Int: " + this.value;
+    return super.toString() + this.value;
   }
 
   public void setValue(String s) throws IllegalArgumentException{
