@@ -14,14 +14,14 @@ public class Lexer {
     ArrayList<Token> buffer = new ArrayList<>();
 
     private final HashMap<String, Reserved> reservedTokens = new HashMap<>();
-    private final HashMap<String, Identifier> identifierToken = new HashMap<>();
+    private final HashMap<String, Identifier> identifierTokens = new HashMap<>();
 
     final void reserveReserved(Reserved token){
         this.reservedTokens.put(token.getLexeme(), token);
     }
 
     final void reserveIdentifier(Identifier token){
-        this.identifierToken.put(token.getLexeme(), token);
+        this.identifierTokens.put(token.getLexeme(), token);
     }
 
     public Lexer(ArrayList<String> lines){
@@ -80,8 +80,37 @@ public class Lexer {
                     System.out.println(e.getMessage());
                     System.exit(0);
                 }
+            } else if (Character.isAlphabetic(this.currentChar)) {
+                int temp_columns = this.columns;
+                StringBuilder temp_lexeme = new StringBuilder();
 
+                while((Character.isAlphabetic(this.currentChar) || Character.isDigit(this.currentChar)) &&  temp_columns < line.length()){
+                    temp_lexeme.append(this.currentChar);
+                    temp_columns++;
+                    if (temp_columns < line.length())
+                    {
+                        this.currentChar = line.charAt(temp_columns);
+                    }
+                }
 
+                String lexeme = temp_lexeme.toString();
+
+                if (reservedTokens.get(lexeme) != null) {
+                    Reserved r = reservedTokens.get(lexeme);
+                    r.setLine(this.line);
+                    r.setColumn(this.columns);
+                    this.addTokenToBuffer(r);
+                } else if (identifierTokens.get(lexeme) != null) {
+                    Identifier i = identifierTokens.get(lexeme);
+                    i.setLine(this.line);
+                    i.setColumn(this.columns);
+                    this.addTokenToBuffer(i);
+                } else {
+                    Identifier i = new Identifier(lexeme, this.line, this.columns);
+                    this.addTokenToBuffer(i);
+                    this.reserveIdentifier(i);
+                }
+                this.columns += lexeme.length();
             }
 
 
