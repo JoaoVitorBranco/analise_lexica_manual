@@ -2,14 +2,14 @@ package lexer.tags;
 
 
 public class Punctuator extends Token{
-  private final static String[] simbols = {"[","]","(",")",",",";"};
-  private String simbol;
+  private final static String[] symbols = {"[","]","(",")",",",";"};
+  private String symbol;
 
-  Punctuator(String operator, int line){
+  public Punctuator(String operator, int line){
     super(Tag.PUNCTUATOR, line);
 
     try{
-      setPunctuator(simbol);
+      setPunctuator(operator);
     }catch(Exception e){
       System.out.println(e.getMessage());
     }
@@ -17,7 +17,7 @@ public class Punctuator extends Token{
   }
 
   public static boolean isPunctuator(String s){
-    for(String op : simbols){
+    for(String op : symbols){
       if(op.equals(s)){
         return true;
       }
@@ -26,16 +26,16 @@ public class Punctuator extends Token{
   }
 
   public String getPunctuator(){
-    return this.simbol;
+    return this.symbol;
   }
 
   public String toString(){
-    return "Punctuator: " +  this.simbol;
+    return "Punctuator: " +  this.symbol;
   }
 
-  public void setPunctuator(String simbol) throws Exception{
-    if(isPunctuator(simbol)){
-      this.simbol = simbol;
+  public void setPunctuator(String symbol) throws Exception{
+    if(isPunctuator(symbol)){
+      this.symbol = symbol;
     }else{
       throw new Exception("Pontuador inválido");
     }

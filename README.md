@@ -72,7 +72,7 @@ de um ou mais dígitos
     - _ex_: !
     - _ex_: ,
 
-10. Pontuadores 
+10. Pontuadores 🟩
     - Qualquer símbolo dentro deste conjunto: [, ], (, ), ,
     - _ex_: [
     - _ex_: ]
