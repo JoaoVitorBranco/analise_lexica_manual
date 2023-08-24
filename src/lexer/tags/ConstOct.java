@@ -1,5 +1,6 @@
 
-package tags;
+package lexer.tags;
+
 public class ConstOct extends Token{
     private String oct;
 

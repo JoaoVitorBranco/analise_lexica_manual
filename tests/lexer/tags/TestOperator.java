@@ -1,4 +1,7 @@
-import tags.Operator;
+package tests.lexer.tags;
+
+
+import lexer.tags.Operator;
 
 public class TestOperator{
   public static void main(String[] args) {

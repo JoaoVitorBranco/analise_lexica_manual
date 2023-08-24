@@ -1,4 +1,6 @@
-import tags.ConstHex;
+package tests.lexer.tags;
+
+import lexer.tags.ConstHex;
 
 public class TestConstHex{
   public static void main(String[] args) {

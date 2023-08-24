@@ -1,4 +1,5 @@
-package tags;
+package lexer.tags;
+
 
 public class ConstHex extends Token {
     private String hex;

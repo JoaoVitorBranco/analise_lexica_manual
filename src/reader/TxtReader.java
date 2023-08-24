@@ -8,8 +8,8 @@ public class TxtReader {
 
     public static ArrayList<String> readFile(String path){
         Scanner scanner = openFile(path);
-        ArrayList<String> lines = new ArrayList<>();        
-        
+        ArrayList<String> lines = new ArrayList<>();
+
         try {
             while(scanner.hasNextLine()){
                 lines.add(scanner.nextLine());
@@ -20,7 +20,7 @@ public class TxtReader {
             System.exit(1);
         }
         closeFile(scanner);
-        
+
         return lines;
     }
 

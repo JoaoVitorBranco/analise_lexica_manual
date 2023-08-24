@@ -1,10 +1,8 @@
 package tests.reader;
 
-import java.util.ArrayList;
-
 import reader.TxtReader;
 
-
+import java.util.ArrayList;
 
 public class TestTxtReader {
     public static void main(String[] args) {
@@ -15,5 +13,4 @@ public class TestTxtReader {
             System.out.println(line);
         }
     }
-
 }

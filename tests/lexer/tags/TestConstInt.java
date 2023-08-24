@@ -1,4 +1,7 @@
-import tags.ConstInt;
+package tests.lexer.tags;
+
+
+import lexer.tags.ConstInt;
 
 public class TestConstInt{
   public static void main(String[] args){

@@ -1,4 +1,5 @@
-package tags;
+package lexer.tags;
+
 
 public class ConstReal extends Token{
     private String value;

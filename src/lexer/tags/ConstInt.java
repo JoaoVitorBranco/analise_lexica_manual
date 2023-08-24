@@ -1,4 +1,4 @@
-package tags;
+package lexer.tags;
 
 public class ConstInt extends Token{
   private int value;

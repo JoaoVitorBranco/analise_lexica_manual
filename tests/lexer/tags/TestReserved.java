@@ -1,4 +1,7 @@
-import tags.Reserved;
+package tests.lexer.tags;
+
+
+import lexer.tags.Reserved;
 
 public class TestReserved {
     public static void main(String[] args) {

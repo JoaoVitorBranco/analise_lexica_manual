@@ -1,4 +1,7 @@
-import tags.ConstOct;
+package tests.lexer.tags;
+
+
+import lexer.tags.ConstOct;
 
 public class TestConstOct {
   public static void main(String[] args) {

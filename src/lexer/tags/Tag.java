@@ -1,4 +1,4 @@
-package tags;
+package lexer.tags;
 
 public enum Tag{
   RESERVED("RESERVED"), 

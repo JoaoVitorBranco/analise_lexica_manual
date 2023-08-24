@@ -1,5 +1,8 @@
-import tags.Tag;
-import tags.Token;
+package tests.lexer.tags;
+
+
+import lexer.tags.Tag;
+import lexer.tags.Token;
 
 public class TestToken{
   public static void main(String[] args){
