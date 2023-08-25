@@ -69,10 +69,10 @@ public class Lexer {
                         String s =  this.currentChar + ""  + c + c2;
                         Char r = new Char(s, this.line, this.columns);
                         this.addTokenToBuffer(r);
-                        this.columns += 3;
+                        this.columns += 3 - 1;
                     }
                     else {
-                        throw new Exception("Char mal formado");
+                        throw new Exception( this.line + ":" + this.columns + " Char mal formado");
                     }
 
                 }
