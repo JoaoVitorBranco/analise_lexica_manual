@@ -110,7 +110,7 @@ public class Lexer {
                     this.addTokenToBuffer(i);
                     this.reserveIdentifier(i);
                 }
-                this.columns += lexeme.length();
+                this.columns += lexeme.length() - 1;
             }
 
 
