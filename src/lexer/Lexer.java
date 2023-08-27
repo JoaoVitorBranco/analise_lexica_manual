@@ -54,10 +54,10 @@ public class Lexer {
             while(this.currentChar != '\n' && this.columns < line.length()){
                 this.currentChar = line.charAt(this.columns);
                 
-                if(this.currentChar == ' ' || this.currentChar == '\t'){
+                if(this.currentChar == ' ' || this.currentChar == '\t') {
                     this.columns++;
                     continue;
-                } else if (this.currentChar == '"'){ // CharString
+                } else if (this.currentChar == '"') { // CharString
                         int temp_columns = this.columns;
                         StringBuilder temp_lexeme = new StringBuilder();
                         temp_lexeme.append(this.currentChar);
@@ -89,7 +89,7 @@ public class Lexer {
                 } else if (Punctuator.isPunctuator(this.currentChar + "")) { // Punctuator
                     Punctuator p = new Punctuator(this.currentChar + "", this.line, this.columns);
                     this.addTokenToBuffer(p);
-                } else if (this.currentChar == '\''){ // Char
+                } else if (this.currentChar == '\'') { // Char
                     char c = line.charAt(this.columns + 1);
                     char c2 = line.charAt(this.columns + 2);
 
@@ -102,7 +102,7 @@ public class Lexer {
                     else {
                         throw new Exception( this.line + ":" + this.columns + " Char mal formado");
                     }
-                } else if (Character.isAlphabetic(this.currentChar)) { // ?
+                } else if (Character.isAlphabetic(this.currentChar)) { // Identifier and Reserved
                     int temp_columns = this.columns;
                     StringBuilder temp_lexeme = new StringBuilder();
     
@@ -133,8 +133,26 @@ public class Lexer {
                         this.reserveIdentifier(i);
                     }
                     this.columns += lexeme.length() - 1;
+                } else { // All Const and Operators
+                    if(this.currentChar == '+') { // Operator, ConstInt or ConstReal
+
+                    } else if(this.currentChar == '-') { // Operator, ConstInt or ConstReal
+
+                    } else if (this.currentChar == '0') { // ConstInt, ConstHex, ConstOct or ConstReal
+                        
+                    } else if (Character.isDigit(this.currentChar)) { // ConstInt, ConstHex, ConstOct or ConstReal
+
+                    } else if (Operator.isOperator(this.currentChar + "")) { // Operator
+                        String s = this.currentChar + "";
+                        Operator o = new Operator(s, this.line, this.columns);
+                        this.addTokenToBuffer(o);
+                        this.columns++;
+                        
+                    } else { // Invalid Character
+                        throw new Exception( this.line + ":" + this.columns + " Caractere inválido" );
+                    }
                 }
-    
+                
     
                 this.columns++;
             }

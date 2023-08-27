@@ -84,6 +84,31 @@ public class TestLexer {
         Lexer l_charString2 = new Lexer(charString2);
         l_charString2.scanLines();
         l_charString2.printBuffer();
-
+        
+        // // CharString, Identificadores, Caractere e Pontuadores 
+        // System.out.println("\n============ Erro no CharString ============");
+        // ArrayList<String> charString3 = new ArrayList<>();
+        // charString3.add("dasd asda ; \"andre das @");
+        // Lexer l_charString3 = new Lexer(charString3);
+        // l_charString3.scanLines();
+        // l_charString3.printBuffer();
+        
+        // Operators with length 1
+        System.out.println("\n============ Operators with length 1 ============");
+        ArrayList<String> opStringL1 = new ArrayList<>();
+        opStringL1.add("& * ~ !");
+        Lexer l_opStringL1 = new Lexer(opStringL1);
+        l_opStringL1.scanLines();
+        l_opStringL1.printBuffer();
+        
+        // CharString, Identificadores, Caractere, Pontuadores e Operadores de tamanho 1 
+        System.out.println("\n============ CharString, Identificadores, Caractere, Pontuadores e Operadores de Tamanho 1 ============");
+        ArrayList<String> mix1 = new ArrayList<>();
+        mix1.add("\"andre ~\" & var1 ; 'i' ");
+        Lexer l_mix1 = new Lexer(mix1);
+        l_mix1.scanLines();
+        l_mix1.printBuffer();
+        
+        
     }
 }

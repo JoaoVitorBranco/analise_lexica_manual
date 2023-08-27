@@ -60,7 +60,7 @@ de um ou mais dígitos
     - _ex_: '2'
 
 9. Operadores 🟩
-    - Qualquer símbolo dentro deste conjunto: ‐>, ++, ‐‐, &, *, +, ‐, ,̃ !
+    - Qualquer símbolo dentro deste conjunto: ‐>, ++, ‐‐, &, *, +, ‐, ~, !
     - _ex_: ->
     - _ex_: ++
     - _ex_: --

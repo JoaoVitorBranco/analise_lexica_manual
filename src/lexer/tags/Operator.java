@@ -2,7 +2,7 @@ package lexer.tags;
 
 
 public class Operator extends Token {
-  private final static String[] operators = {"++", "--", "&", "*", "+", "-", "~", "!", ","};
+  private final static String[] operators = {"++", "--", "&", "*", "+", "-", "~", "!", ",","->"};
   private String operator;
 
   public Operator(String operator, int line, int column ){
