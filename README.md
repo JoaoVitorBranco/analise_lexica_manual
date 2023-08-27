@@ -50,7 +50,7 @@
 
 de um ou mais dígitos
 
-7. Cadeias de Caracteres
+7. Cadeias de Caracteres 🟩🟩
     - qualquer sequência de zero ou mais caracteres ladeado por " e"
     - _ex_: "isasdADS\ \*\*\\d@0129yu398nosdh0123>:???>?>^''''''^}d~]aç]sdças\]      \\n\n\nn\nn\n/-/*"
     
