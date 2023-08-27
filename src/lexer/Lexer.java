@@ -82,7 +82,6 @@ public class Lexer {
                         String lexeme = temp_lexeme.toString();
                         CharString cs = new CharString(lexeme, this.line, this.columns);
                         this.addTokenToBuffer(cs);
-                        temp_columns++;
                         this.columns = temp_columns;
                         
 
@@ -133,27 +132,102 @@ public class Lexer {
                         this.reserveIdentifier(i);
                     }
                     this.columns += lexeme.length() - 1;
-                } else { // All Const and Operators
-                    if(this.currentChar == '+') { // Operator, ConstInt or ConstReal
+                } else if(this.currentChar == '+' || this.currentChar == '-') { // Operator, ConstInt or ConstReal
+                    StringBuilder temp_lexeme = new StringBuilder();
+                    temp_lexeme.append(this.currentChar);
+                    int temp_columns = this.columns;
+                    temp_columns++;
+                    this.currentChar = line.charAt(temp_columns);
+                    temp_lexeme.append(this.currentChar);
 
-                    } else if(this.currentChar == '-') { // Operator, ConstInt or ConstReal
-
-                    } else if (this.currentChar == '0') { // ConstInt, ConstHex, ConstOct or ConstReal
-                        
-                    } else if (Character.isDigit(this.currentChar)) { // ConstInt, ConstHex, ConstOct or ConstReal
-
-                    } else if (Operator.isOperator(this.currentChar + "")) { // Operator
-                        String s = this.currentChar + "";
-                        Operator o = new Operator(s, this.line, this.columns);
+                    if(Operator.isOperator(temp_lexeme.toString())){
+                        if(temp_columns != line.length() - 1){
+                            if(line.charAt(temp_columns + 1) != ' ' && line.charAt(temp_columns + 1) != '\t' && line.charAt(temp_columns + 1) != '\n'){
+                                throw new Exception( this.line + ":" + temp_columns + " Operador mal formatado" );
+                            }
+                        }
+                        String s = temp_lexeme.toString();
+                        Operator o = new Operator(s, this.line, temp_columns);
                         this.addTokenToBuffer(o);
-                        this.columns++;
-                        
-                    } else { // Invalid Character
-                        throw new Exception( this.line + ":" + this.columns + " Caractere inválido" );
+                        this.columns = temp_columns;
                     }
-                }
-                
+                    else if(Character.isDigit(this.currentChar)){
+                        if(temp_columns == line.length() - 1){
+                            ConstInt c = new ConstInt(temp_lexeme.toString(), this.line, this.columns);
+                            this.addTokenToBuffer(c);
+                            this.columns = temp_columns;
+                        } else {
+                            temp_columns++;
+                            this.currentChar = line.charAt(temp_columns);
+                            boolean just_one_dot = false;
+                            boolean digit_between_dot_and_e = false;
+                            boolean just_one_e = false;
+                            boolean just_one_signal = false;
+                            boolean last_char_is_e = false;
     
+                            while(this.currentChar != ' ' && this.currentChar != '\t' && this.currentChar != '\n'){
+                                if(this.currentChar == '.' && !just_one_dot){ 
+                                    just_one_dot = true;
+                                    digit_between_dot_and_e = false;
+                                }
+                                else if(Character.isDigit(this.currentChar)){
+                                    digit_between_dot_and_e = true;
+                                    last_char_is_e = false;
+                                }
+                                else if(!just_one_e && digit_between_dot_and_e && just_one_dot && (this.currentChar == 'e' || this.currentChar == 'E')){
+                                    just_one_e = true;
+                                    last_char_is_e = true;
+                                }
+                                else if(just_one_dot && last_char_is_e && just_one_e && digit_between_dot_and_e && !just_one_signal &&(this.currentChar == '+' || this.currentChar == '-')){
+                                    just_one_signal = true;
+                                }
+                                else{
+                                    throw new Exception( this.line + ":" + temp_columns + " Constante Numérica mal formatada" );
+                                }
+                                temp_lexeme.append(this.currentChar);
+                                temp_columns++;
+                                if(temp_columns == line.length()){
+                                    break;
+                                }
+                                this.currentChar = line.charAt(temp_columns);
+                            }
+                            String s = temp_lexeme.toString();
+                            if(Character.isDigit(s.charAt(s.length() - 1))){
+                                if(s.indexOf('.') != -1){
+                                    ConstReal c = new ConstReal(s, this.line, this.columns);
+                                    this.addTokenToBuffer(c);
+                                }
+                                else{
+                                    ConstInt c = new ConstInt(s, this.line, this.columns);
+                                    this.addTokenToBuffer(c);
+    
+                                }
+                                this.columns = temp_columns;
+                            }
+                            else{
+                                throw new Exception( this.line + ":" + temp_columns + " Constante Numérica mal formatada" );
+                            }
+                        }
+                    }
+                    else{
+                        throw new Exception( this.line + ":" + temp_columns + " Operador mal formatado" );
+                    }
+                } else if (this.currentChar == '0') { // ConstInt, ConstHex, ConstOct or ConstReal
+                } else if (Character.isDigit(this.currentChar)) { // ConstInt or ConstReal
+                } else if (Operator.isOperator(this.currentChar + "")) { // Operator
+                    if(this.columns != line.length() - 1){
+                        if(line.charAt(this.columns + 1) != ' ' && line.charAt(this.columns + 1) != '\t' && line.charAt(this.columns + 1) != '\n'){
+                            throw new Exception( this.line + ":" + this.columns + " Operador mal formatado" );
+                        }
+                    }
+                    String s = this.currentChar + "";
+                    Operator o = new Operator(s, this.line, this.columns);
+                    this.addTokenToBuffer(o);
+                    
+                } else { // Invalid Character
+                    throw new Exception( this.line + ":" + this.columns + " Caractere inválido" );
+                }
+
                 this.columns++;
             }
         }

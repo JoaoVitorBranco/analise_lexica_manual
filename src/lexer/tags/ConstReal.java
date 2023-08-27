@@ -5,7 +5,7 @@ public class ConstReal extends Token{
     private String value;
 
 
-    ConstReal(String n_real, int line, int column ){
+    public ConstReal(String n_real, int line, int column ){
         super(Tag.DOUBLE, line,column);
         
         try{
@@ -34,7 +34,7 @@ public class ConstReal extends Token{
 
     public static boolean isConstReal(String n_real){
         String n_real_lower = n_real.toLowerCase();
-        if(n_real_lower.matches("[+,-]?[0-9]+.[0-9]+([e,E][+,-]?[0-9]+)?")){
+        if(! n_real_lower.matches("[+,-]?[0-9]+.[0-9]+([e,E][+,-]?[0-9]+)?")){
             return false;
         }
 
