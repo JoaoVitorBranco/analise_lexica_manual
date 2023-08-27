@@ -96,7 +96,7 @@ public class TestLexer {
         // Operators with length 1
         System.out.println("\n============ Operators with length 1 ============");
         ArrayList<String> opStringL1 = new ArrayList<>();
-        opStringL1.add("& * ~ !");
+        opStringL1.add("& * ~ ! -- ++ -> ");
         Lexer l_opStringL1 = new Lexer(opStringL1);
         l_opStringL1.scanLines();
         l_opStringL1.printBuffer();
@@ -108,6 +108,22 @@ public class TestLexer {
         Lexer l_mix1 = new Lexer(mix1);
         l_mix1.scanLines();
         l_mix1.printBuffer();
+
+        // ConstInt
+        System.out.println("\n============ ConstInt with +/- ============");
+        ArrayList<String> constInt1 = new ArrayList<>();
+        constInt1.add("+0 +1231231 -0123 +11 -0 -1");
+        Lexer l_constInt1 = new Lexer(constInt1);
+        l_constInt1.scanLines();
+        l_constInt1.printBuffer();
+
+        // ConstReal
+        System.out.println("\n============ ConstReal with +/- ============");
+        ArrayList<String> constReal1 = new ArrayList<>();
+        constReal1.add("+1.1 -2.0 +22.11 -0.00 +02.1 +1.1e1 -2.22e4 +22.11e-1 -0.00e+1 +02.1e-1");
+        Lexer l_constReal1 = new Lexer(constReal1);
+        l_constReal1.scanLines();
+        l_constReal1.printBuffer();
         
         
     }
