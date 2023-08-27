@@ -49,19 +49,47 @@ public class Lexer {
         this.columns = 0;
         this.line++;
         this.currentChar = ' ';
+        
+        try{
+            while(this.currentChar != '\n' && this.columns < line.length()){
+                this.currentChar = line.charAt(this.columns);
+                
+                if(this.currentChar == ' ' || this.currentChar == '\t'){
+                    this.columns++;
+                    continue;
+                } else if (this.currentChar == '"'){ // CharString
+                        int temp_columns = this.columns;
+                        StringBuilder temp_lexeme = new StringBuilder();
+                        temp_lexeme.append(this.currentChar);
+                        
+                        temp_columns++;
+                        this.currentChar = line.charAt(temp_columns);
+        
+                        while(this.currentChar != '"' &&  temp_columns < line.length()){
+                            temp_lexeme.append(this.currentChar);
+                            temp_columns++;
+                            if (temp_columns < line.length())
+                            {
+                                this.currentChar = line.charAt(temp_columns);
+                            }
+                        }
+                        
+                        if(this.currentChar != '"'){
+                            throw new Exception( this.line + ":" + this.columns + " Cadeia de caracteres mal formado");
+                        }
 
-        while(this.currentChar != '\n' && this.columns < line.length()){
-            this.currentChar = line.charAt(this.columns);
-            
-            if(this.currentChar == ' ' || this.currentChar == '\t'){
-                this.columns++;
-                continue;
-            } else if (Punctuator.isPunctuator(this.currentChar + "")) {
-                Punctuator p = new Punctuator(this.currentChar + "", this.line, this.columns);
-                this.addTokenToBuffer(p);
-            } else if (this.currentChar == '\'')
-            {
-                try{
+                        temp_lexeme.append(this.currentChar);
+                        String lexeme = temp_lexeme.toString();
+                        CharString cs = new CharString(lexeme, this.line, this.columns);
+                        this.addTokenToBuffer(cs);
+                        temp_columns++;
+                        this.columns = temp_columns;
+                        
+
+                } else if (Punctuator.isPunctuator(this.currentChar + "")) { // Punctuator
+                    Punctuator p = new Punctuator(this.currentChar + "", this.line, this.columns);
+                    this.addTokenToBuffer(p);
+                } else if (this.currentChar == '\''){ // Char
                     char c = line.charAt(this.columns + 1);
                     char c2 = line.charAt(this.columns + 2);
 
@@ -74,48 +102,48 @@ public class Lexer {
                     else {
                         throw new Exception( this.line + ":" + this.columns + " Char mal formado");
                     }
-
-                }
-                catch (Exception e){
-                    System.out.println(e.getMessage());
-                    System.exit(0);
-                }
-            } else if (Character.isAlphabetic(this.currentChar)) {
-                int temp_columns = this.columns;
-                StringBuilder temp_lexeme = new StringBuilder();
-
-                while((Character.isAlphabetic(this.currentChar) || Character.isDigit(this.currentChar)) &&  temp_columns < line.length()){
-                    temp_lexeme.append(this.currentChar);
-                    temp_columns++;
-                    if (temp_columns < line.length())
-                    {
-                        this.currentChar = line.charAt(temp_columns);
+                } else if (Character.isAlphabetic(this.currentChar)) { // ?
+                    int temp_columns = this.columns;
+                    StringBuilder temp_lexeme = new StringBuilder();
+    
+                    while((Character.isAlphabetic(this.currentChar) || Character.isDigit(this.currentChar)) &&  temp_columns < line.length()){
+                        temp_lexeme.append(this.currentChar);
+                        temp_columns++;
+                        if (temp_columns < line.length())
+                        {
+                            this.currentChar = line.charAt(temp_columns);
+                        }
                     }
+    
+                    String lexeme = temp_lexeme.toString();
+    
+                    if (reservedTokens.get(lexeme) != null) {
+                        Reserved r = reservedTokens.get(lexeme);
+                        r.setLine(this.line);
+                        r.setColumn(this.columns);
+                        this.addTokenToBuffer(r);
+                    } else if (identifierTokens.get(lexeme) != null) {
+                        Identifier i = identifierTokens.get(lexeme);
+                        i.setLine(this.line);
+                        i.setColumn(this.columns);
+                        this.addTokenToBuffer(i);
+                    } else {
+                        Identifier i = new Identifier(lexeme, this.line, this.columns);
+                        this.addTokenToBuffer(i);
+                        this.reserveIdentifier(i);
+                    }
+                    this.columns += lexeme.length() - 1;
                 }
-
-                String lexeme = temp_lexeme.toString();
-
-                if (reservedTokens.get(lexeme) != null) {
-                    Reserved r = reservedTokens.get(lexeme);
-                    r.setLine(this.line);
-                    r.setColumn(this.columns);
-                    this.addTokenToBuffer(r);
-                } else if (identifierTokens.get(lexeme) != null) {
-                    Identifier i = identifierTokens.get(lexeme);
-                    i.setLine(this.line);
-                    i.setColumn(this.columns);
-                    this.addTokenToBuffer(i);
-                } else {
-                    Identifier i = new Identifier(lexeme, this.line, this.columns);
-                    this.addTokenToBuffer(i);
-                    this.reserveIdentifier(i);
-                }
-                this.columns += lexeme.length() - 1;
+    
+    
+                this.columns++;
             }
-
-
-            this.columns++;
         }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            // System.exit(0);
+        }
+
     }
 
     public void addTokenToBuffer(Token token){

@@ -1,4 +1,3 @@
-package tests.lexer.tags;
 
 import lexer.tags.ConstHex;
 
@@ -20,7 +19,11 @@ public class TestConstHex{
     System.out.println(ConstHex.isConstHex(invalid_hex_1));
     System.out.println(ConstHex.isConstHex(invalid_hex_2));
     System.out.println(ConstHex.isConstHex(invalid_hex_3));
-
-    ConstHex const_hex_2 = new ConstHex(invalid_hex_2, 10, 1);
+    try{
+      ConstHex const_hex_2 = new ConstHex(invalid_hex_2, 10, 1);
+    } catch (Exception e) {
+            System.out.println("Constante Hexadecimal inválida levantou erro!");
+    }
+    
   }
 }

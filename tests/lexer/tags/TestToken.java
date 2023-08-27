@@ -1,4 +1,3 @@
-package tests.lexer.tags;
 
 
 import lexer.tags.Tag;

@@ -1,4 +1,3 @@
-package tests.lexer.tags;
 
 import lexer.tags.Punctuator;
 
@@ -14,7 +13,12 @@ public class TestPunctuator {
         System.out.println(Punctuator.isPunctuator(string2));
         System.out.println(Punctuator.isPunctuator(string3));
 
-        new Punctuator(string3, 1, 0);
+        try{
+            new Punctuator(string3, 1, 0);
+        } catch (Exception e) {
+            System.out.println("Pontuador inválido levantou erro!");
+        }
+        
 
         System.out.println(r.getPunctuator());
         System.out.println(r.getLine());
