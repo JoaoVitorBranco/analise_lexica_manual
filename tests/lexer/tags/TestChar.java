@@ -1,5 +1,3 @@
-package tests.lexer.tags;
-
 import lexer.tags.Char;
 
 public class TestChar {
@@ -15,11 +13,16 @@ public class TestChar {
         System.out.println(Char.isChar(string4));
 
 
-        Char r = new Char(string1, 10);
+        Char r = new Char(string1, 10,0);
         System.out.println(r.getLexeme());
         System.out.println(r.getLine());
 
         System.out.println(r.toString());
-        new Char(string3, 1);
+        try {
+            
+            new Char(string3, 1,0);
+        } catch (Exception e) {
+            System.out.println("Char inválido levantou erro!");
+        }
     }
 }

@@ -5,8 +5,8 @@ public class Punctuator extends Token{
   private final static String[] symbols = {"[","]","(",")",",",";"};
   private String symbol;
 
-  public Punctuator(String operator, int line){
-    super(Tag.PUNCTUATOR, line);
+  public Punctuator(String operator, int line, int column ){
+    super(Tag.PUNCTUATOR, line,column);
 
     setPunctuator(operator);
 

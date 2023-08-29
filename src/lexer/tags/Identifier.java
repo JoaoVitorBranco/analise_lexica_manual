@@ -3,8 +3,8 @@ package lexer.tags;
 public class Identifier extends Token{
     private String lexeme;
 
-    public Identifier(String lexeme, int line){
-        super(Tag.IDENTIFIER, line);
+    public Identifier(String lexeme, int line, int column ){
+        super(Tag.IDENTIFIER, line,column);
         setLexeme(lexeme);
     }
 

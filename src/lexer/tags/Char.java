@@ -3,8 +3,8 @@ package lexer.tags;
 public class Char extends Token {
     private String lexeme;
 
-    public Char(String c, int line) throws IllegalArgumentException{
-        super(Tag.CHAR, line);
+    public Char(String c, int line, int column) throws IllegalArgumentException{
+        super(Tag.CHAR, line, column);
         this.setLexeme(c);
     }
 

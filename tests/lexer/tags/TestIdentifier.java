@@ -1,4 +1,3 @@
-package tests.lexer.tags;
 
 import lexer.tags.Identifier;
 
@@ -9,7 +8,7 @@ public class TestIdentifier {
         String string3 = "while";
         String string4 = "0banana";
 
-        Identifier r = new Identifier(string1, 10);
+        Identifier r = new Identifier(string1, 10, 0);
         System.out.println(r);
 
         System.out.println(Identifier.isIdentifier(string1));
@@ -17,7 +16,7 @@ public class TestIdentifier {
         System.out.println(Identifier.isIdentifier(string3));
         System.out.println(Identifier.isIdentifier(string4));
 
-        new Identifier(string4, 1);
+        new Identifier(string4, 1, 0);
         System.out.println(r.getLexeme());
         System.out.println(r.getLine());
     }

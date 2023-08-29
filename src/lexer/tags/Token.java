@@ -5,11 +5,13 @@ public class Token {
 
     public Tag tag;
     public int line;
+    private int column;
 
    
-    public Token(Tag tag, int line) {
+    public Token(Tag tag, int line, int column) {
         this.tag = tag;
         this.line = line;
+        this.column = column;
     }
 
     public String getTag() {
@@ -30,6 +32,14 @@ public class Token {
     
     @Override
     public String toString() {
-        return this.line + " " + "<" + this.tag.toString() + "> ";
+        return this.line + ":" + this.column + " " + "<" + this.tag.toString() + "> ";
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
     }
 }

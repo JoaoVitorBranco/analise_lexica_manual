@@ -6,8 +6,8 @@ public class Reserved extends Token{
     private String lexeme;
     
 
-    public Reserved(String lexeme, int line) throws IllegalArgumentException {
-        super(Tag.RESERVED, line);
+    public Reserved(String lexeme, int line, int column ) throws IllegalArgumentException {
+        super(Tag.RESERVED, line,column);
         this.setLexeme(lexeme);
 
     }

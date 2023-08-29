@@ -5,8 +5,8 @@ public class ConstHex extends Token {
     private String hex;
 
 
-    public ConstHex(String hex, int line){
-        super(Tag.HEX, line);
+    public ConstHex(String hex, int line, int column){
+        super(Tag.HEX, line, column);
         
 
         setHex(hex);

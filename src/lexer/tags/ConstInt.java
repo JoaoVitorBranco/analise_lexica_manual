@@ -3,12 +3,12 @@ package lexer.tags;
 public class ConstInt extends Token{
   private int value;
 
-  public ConstInt(String value, int line){
-    super(Tag.INT, line);
+  public ConstInt(String value, int line, int column){
+    super(Tag.INT, line, column);
     setValue(value);
   }
-  public ConstInt(int value, int line){
-    super(Tag.INT, line);
+  public ConstInt(int value, int line, int column){
+    super(Tag.INT, line, column);
     this.value = value;
   }
 

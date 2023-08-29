@@ -6,7 +6,7 @@
 - Identificação de uma sequência de caracteres, realizando uma análise léxica em Java.
 
 ### Marcas/TAGs
-1. Palavras Reservadas 🟩
+1. Palavras Reservadas 🟩🟩
     - if
     - else
     - while
@@ -15,7 +15,7 @@
     - char
     - void
 
-2. Identificador 
+2. Identificador 🟩🟩
     - pelo menos uma letra seguida de zero ou mais letras ou dígitos
     - nomes de variáveis
     - _ex_: banana
@@ -50,7 +50,7 @@
 
 de um ou mais dígitos
 
-7. Cadeias de Caracteres
+7. Cadeias de Caracteres 🟩🟩
     - qualquer sequência de zero ou mais caracteres ladeado por " e"
     - _ex_: "isasdADS\ \*\*\\d@0129yu398nosdh0123>:???>?>^''''''^}d~]aç]sdças\]      \\n\n\nn\nn\n/-/*"
     
@@ -60,7 +60,7 @@ de um ou mais dígitos
     - _ex_: '2'
 
 9. Operadores 🟩
-    - Qualquer símbolo dentro deste conjunto: ‐>, ++, ‐‐, &, *, +, ‐, ,̃ !
+    - Qualquer símbolo dentro deste conjunto: ‐>, ++, ‐‐, &, *, +, ‐, ~, !
     - _ex_: ->
     - _ex_: ++
     - _ex_: --

@@ -5,8 +5,8 @@ public class ConstOct extends Token{
     private String oct;
 
 
-    public ConstOct(String oct, int line){
-        super(Tag.OCT, line);
+    public ConstOct(String oct, int line, int column ){
+        super(Tag.OCT, line,column);
         setOct(oct);
 
     }
