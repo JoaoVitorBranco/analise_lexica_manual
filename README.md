@@ -81,13 +81,7 @@ de um ou mais dígitos
     - _ex_: ; 
 
 ## Observações
-1. Ignorar espaçis em branco
+1. Ignorar espaços em branco
 
 2. Apontar Erro
 
-## Pendentes
-
-
-
-
-vitor 1 0x120123ASedasd "0129u3091d" @ -- {}
