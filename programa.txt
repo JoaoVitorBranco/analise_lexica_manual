@@ -1,5 +1,7 @@
 void fibonacci
-if vitor == 4
-'l' 0x006C (108) 0x6C
-v != p
+if vitor * 4
+'l' 0x006C ( 108 ) 0x6C
+v -> p
 1.2 isapizi ;
+"aula do furlan"
++1.2 - 1.2
