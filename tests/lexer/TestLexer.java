@@ -93,10 +93,10 @@ public class TestLexer {
         // l_charString3.scanLines();
         // l_charString3.printBuffer();
         
-        // Operators with length 1
-        System.out.println("\n============ Operators with length 1 ============");
+        // Operators
+        System.out.println("\n============ Operators ============");
         ArrayList<String> opStringL1 = new ArrayList<>();
-        opStringL1.add("& * ~ ! -- ++ -> ");
+        opStringL1.add("& * ~ ! -- ++ -> + -");
         Lexer l_opStringL1 = new Lexer(opStringL1);
         l_opStringL1.scanLines();
         l_opStringL1.printBuffer();
@@ -125,6 +125,51 @@ public class TestLexer {
         l_constReal1.scanLines();
         l_constReal1.printBuffer();
         
+        // ConstInt 0
+        System.out.println("\n============ ConstReal 0 ============");
+        ArrayList<String> constReal01 = new ArrayList<>();
+        constReal01.add("0");
+        constReal01.add("0 ");
+        Lexer l_constReal01 = new Lexer(constReal01);
+        l_constReal01.scanLines();
+        l_constReal01.printBuffer();
+        
+        // ConstHex
+        System.out.println("\n============ ConstHex ============");
+        ArrayList<String> constHex = new ArrayList<>();
+        constHex.add("0x0 0x001 0x1 0xa 0xaa 0xf2b 0xabcdef");
+        constHex.add("0xabcdef ");
+        Lexer l_constHex = new Lexer(constHex);
+        l_constHex.scanLines();
+        l_constHex.printBuffer();
+
+        // ConstOct
+        System.out.println("\n============ ConstOct ============");
+        ArrayList<String> constOct = new ArrayList<>();
+        constOct.add("00 012 0135467 01654327");
+        constOct.add("007 02 ");
+        Lexer l_constOct = new Lexer(constOct);
+        l_constOct.scanLines();
+        l_constOct.printBuffer();
+        
+        // ConstReal with first char as 0
+        System.out.println("\n============ ConstReal with first char as 0 ============");
+        ArrayList<String> constReal0 = new ArrayList<>();
+        constReal0.add("0.12 0.1E+02");
+        constReal0.add("0.2 0.12E2 0.5e-231 ");
+        Lexer l_constReal0 = new Lexer(constReal0);
+        l_constReal0.scanLines();
+        l_constReal0.printBuffer();
+
+        // ConstInt starting with digit
+        System.out.println("\n============ ConstInt starting with digit ============");
+        ArrayList<String> constInt2 = new ArrayList<>();
+        constInt2.add("1 12378831 0123 11 0 1 ");
+        constInt2.add("9");
+        Lexer l_constInt2 = new Lexer(constInt2);
+        l_constInt2.scanLines();
+        l_constInt2.printBuffer();
+
         
     }
 }
