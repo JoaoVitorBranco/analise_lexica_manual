@@ -395,7 +395,7 @@ public class Lexer {
         }
         catch (Exception e){
             System.out.println(e.getMessage());
-            // System.exit(0);
+            System.exit(0);
         }
 
     }
