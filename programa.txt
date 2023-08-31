@@ -4,4 +4,7 @@ if vitor * 4
 v -> p
 1.2 isapizi ;
 "aula do furlan"
-+1.2 - 1.2
++1.2 - 1.2 // oi furlan
+
+/* while true aqui 
+n pode dar erro*/
