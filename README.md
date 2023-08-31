@@ -85,3 +85,5 @@ de um ou mais dígitos
 
 2. Apontar Erro
 
+3. Ignorar comentários
+
