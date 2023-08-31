@@ -1,7 +1,6 @@
 package tests.lexer;
 
 import lexer.Lexer;
-import reader.TxtReader;
 
 import java.util.ArrayList;
 
@@ -172,7 +171,7 @@ public class TestLexer {
         System.out.println("\n============ Comment // ============");
         ArrayList<String> comment = new ArrayList<>();
         comment.add("//teste ");
-        comment.add("//teste2");
+        comment.add("vitor //teste2 furlan lenda");
         Lexer l_comment = new Lexer(comment);
         l_comment.scanLines();
         l_comment.printBuffer();
@@ -181,6 +180,11 @@ public class TestLexer {
         ArrayList<String> comment2 = new ArrayList<>();
         comment2.add("/* segovinha joga bola */");
         comment2.add("/*teste*/");
+        comment2.add("/*teste");
+        comment2.add("teste1");
+        comment2.add("teste*/");
+        comment2.add("izipasi");
+
         Lexer l_comment2 = new Lexer(comment2);
         l_comment2.scanLines();
         l_comment2.printBuffer();
