@@ -21,7 +21,7 @@ public class TestLexer {
 
         l_punctuators.scanLines();
         l_punctuators.printBuffer();
-
+        
         // Caracteres
         System.out.println("\n============ Caracteres ============");
         ArrayList<String> characters = new ArrayList<>();
@@ -168,6 +168,24 @@ public class TestLexer {
         Lexer l_constInt2 = new Lexer(constInt2);
         l_constInt2.scanLines();
         l_constInt2.printBuffer();
+
+        System.out.println("\n============ Comment // ============");
+        ArrayList<String> comment = new ArrayList<>();
+        comment.add("//teste ");
+        comment.add("//teste2");
+        Lexer l_comment = new Lexer(comment);
+        l_comment.scanLines();
+        l_comment.printBuffer();
+
+        System.out.println("\n============ Comment /**/ ============");
+        ArrayList<String> comment2 = new ArrayList<>();
+        comment2.add("/* segovinha joga bola */");
+        comment2.add("/*teste*/");
+        Lexer l_comment2 = new Lexer(comment2);
+        l_comment2.scanLines();
+        l_comment2.printBuffer();
+        
+        System.out.println("\n===============================================================");
 
         
     }

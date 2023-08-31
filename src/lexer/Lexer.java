@@ -385,7 +385,18 @@ public class Lexer {
                     String s = this.currentChar + "";
                     Operator o = new Operator(s, this.line, this.columns);
                     this.addTokenToBuffer(o);
+                
                     
+                } else if (this.currentChar == '/') { // Ignorar comentários
+                    int temp_columns = this.columns + 1;
+                    if(line.charAt(temp_columns) == '/'){
+                        break;
+                    }else if(line.charAt(temp_columns) == '*'){
+                        if(line.charAt(line.length()-1) == '/' && line.charAt(line.length()-2) == '*'){
+                            break;
+                        }
+                    }
+
                 } else { // Invalid Character
                     throw new Exception( this.line + ":" + this.columns + " Caractere inválido" );
                 }
