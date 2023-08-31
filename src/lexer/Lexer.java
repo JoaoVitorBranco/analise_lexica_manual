@@ -394,6 +394,9 @@ public class Lexer {
                     }else if(line.charAt(temp_columns) == '*'){
                         if(line.charAt(line.length()-1) == '/' && line.charAt(line.length()-2) == '*'){
                             break;
+                            
+                        } else {
+                            throw new Exception( this.line + ":" + temp_columns + " Comentário mal formatado" );
                         }
                     }
 

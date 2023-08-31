@@ -184,6 +184,15 @@ public class TestLexer {
         Lexer l_comment2 = new Lexer(comment2);
         l_comment2.scanLines();
         l_comment2.printBuffer();
+
+        System.out.println("\n============ Comment error ============");
+        ArrayList<String> comment3 = new ArrayList<>();
+        comment3.add("/*teste ");
+        Lexer l_comment3 = new Lexer(comment3);
+        l_comment3.scanLines();
+        l_comment3.printBuffer();
+
+
         
         System.out.println("\n===============================================================");
 
